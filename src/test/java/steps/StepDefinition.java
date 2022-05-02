@@ -2,6 +2,7 @@ package steps;
 
 import org.openqa.selenium.support.PageFactory;
 
+import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -44,5 +45,11 @@ public class StepDefinition extends TestBase{
 	@Then("The background should be set to White")
 	public void the_background_should_be_set_to_white() {
 	 techfiosPage.validateWhiteBackground();
+	}
+	
+	@After
+	public void tearDown() {
+		driver.close();
+		driver.quit();
 	}
 }
